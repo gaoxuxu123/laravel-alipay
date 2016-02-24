@@ -22,5 +22,5 @@
       "Lxu\\Alipay\\": "src/Lxu/Alipay"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }
