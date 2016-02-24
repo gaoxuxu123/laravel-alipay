@@ -1,0 +1,24 @@
+{
+    "name": "laravel-alipay/alipay",
+    "description": "支付宝SDK在Laravel5封装包。",
+    "keywords": ["Laravel 5", "Laravel", "Alipay", "Alipay SDK"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "gaoxuxu",
+            "email": "394703554@qq.com"
+        }
+    ],
+    "require": {
+      "php": ">=5.4.0",
+      "illuminate/support": "5.*",
+      "illuminate/events": "5.*",
+      "illuminate/config": "5.*"
+    },
+  "autoload": {
+    "psr-4": {
+      "Lxu\\Alipay\\": "src/Lxu/Alipay"
+    }
+  },
+  "minimum-stability": "stable"
+}
