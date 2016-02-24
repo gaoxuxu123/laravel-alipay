@@ -4,10 +4,10 @@
 ```
 composer require laravel-alipay/alipay dev-master
 
-或者
-在composer.json中加入
+或者在composer.json中加入
+
  "require": {
- 
+
         "laravel-alipay/alipay": "dev-master"
 }
 
