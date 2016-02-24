@@ -1,5 +1,5 @@
 {
-    "name": "laravel-alipay/alipay",
+    "name": "laravel-alipay",
     "type": "library",
     "description": "支付宝SDK在Laravel5封装包。",
     "keywords": ["Laravel 5", "Laravel", "Alipay", "Alipay SDK"],
