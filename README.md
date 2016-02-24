@@ -2,7 +2,14 @@
 
 ##安装
 ```
-composer require laravel-alipay/alipay
+composer require laravel-alipay/alipay dev-master
+
+或者
+在composer.json中加入
+ "require": {
+ 
+        "laravel-alipay/alipay": "dev-master"
+}
 
 ```
 更新依赖 ``` composer update ```
