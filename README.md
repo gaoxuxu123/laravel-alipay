@@ -33,7 +33,7 @@ composer require laravel-alipay/alipay dev-master
 ###PC网页支付
 
 ```
-public function pay(Request $request)
+public function getPay(Request $request)
     {
         //唯一的订单号
         $out_trade_no       = '20160122';
@@ -66,6 +66,84 @@ public function pay(Request $request)
         $html_text = $pc->buildRequestForm($parameter,"post", "确认");
         echo $html_text;
 
+        }
+     /**
+         * 支付宝服务器异步通知
+         * @param $request
+         * @return mixed
+         */
+        public function getNotifyurl(Request $request)
+        {
+            $alipayNotify  = app('PcAlipay');
+            $verify_result = $alipayNotify->verifyNotify();
+            if($verify_result){
+                //验证成功
+                //获取支付宝的通知返回参数
+                $parameter = [
+                                "out_trade_no"      => $request->out_trade_no, //商户订单编号；
+                                "trade_no"          => $request->trade_no,     //支付宝交易号；
+                                "total_fee"         => $request->total_fee,    //交易金额；
+                                "trade_status"      => $request->trade_status, //交易状态
+                                "notify_id"         => $request->notify_id,    //通知校验ID。
+                                "notify_time"       => $request->notify_time,  //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
+                                "buyer_email"       => $request->buyer_email,  //买家支付宝帐号；
+                             ];
+                if($request->trade_status == 'TRADE_FINISHED') {
+                        //
+
+                }else if ($request->trade_status == 'TRADE_SUCCESS') {
+
+                        //进行订单处理，并传送从支付宝返回的参数；
+                        //检查是否已经支付
+                        //checkorderstatus($request->out_trade_no);
+                        //修改支付状态
+                        //orderHandle($parameter);
+                }
+                //请不要修改或删除
+                echo "success";
+            }else {
+                //验证失败
+                echo "fail";
+            }
+        }
+        /**
+         * 支付宝页面跳转同步通知
+         * @param $request
+         * @return mixed
+         */
+        public function getReturnurl(Request $request)
+        {
+            $alipayNotify   = app('PcAlipay');
+            $verify_result  = $alipayNotify->verifyReturn();
+            if($verify_result){
+
+                $parameter = [
+                                "out_trade_no"      => $request->out_trade_no, //商户订单编号；
+                                "trade_no"          => $request->trade_no,     //支付宝交易号；
+                                "total_fee"         => $request->total_fee,    //交易金额；
+                                "trade_status"      => $request->trade_status, //交易状态
+                                "notify_id"         => $request->notify_id,    //通知校验ID。
+                                "notify_time"       => $request->notify_time,  //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
+                                "buyer_email"       => $request->buyer_email,  //买家支付宝帐号；
+                            ];
+                if($request->trade_status == 'TRADE_FINISHED' || $request->trade_status == 'TRADE_SUCCESS') {
+                    //支付成功
+                    //处理订单状态，记录支付记录
+                    //检查是否已经支付
+                    //checkorderstatus($request->out_trade_no);
+                    //修改支付状态
+                    //orderHandle($parameter);
+                    //跳转支付成功界面
+                    return view('');
+                }else{
+
+                    //跳转支付失败界面
+                    return view('');
+                }
+            }else{
+                 //echo '支付失败!';
+                return view('');
+            }
         }
 
 ```
