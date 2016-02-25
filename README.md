@@ -151,7 +151,12 @@ public function getPay(Request $request)
 ###手机网页支付
 
 ```
+首先下载 Openssl工具，windows开发者下载链接http://download.csdn.net/detail/gaoxuaiguoyi/9443275
+Linux开发者直接去官网下载openssl.org
 
+解压之后按照
+  https://doc.open.alipay.com/doc2/detail.htm?spm=0.0.0.0.y0P2mJ&treeId=58&articleId=103242&docType=1
+教程即可生成rsa_private_key.pem和rsa_public_key.pem2个文件覆盖项目中的key文件夹下载文件即可。
 
 ```
 
