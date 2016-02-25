@@ -23,8 +23,6 @@
               'payment_type' =>'1',                            //不需修改
               //卖家账户信息
               'seller_email' =>'xxxxxxxxxxxx@xxx.com',          //卖家邮箱
-              'successpage'  =>'alipay.success',                //支付成功提示页面
-              'errorpage'    =>'alipay.failed'                  //支付失败提示页面
 
           ],
       //手机配置
@@ -41,8 +39,6 @@
               'service'             =>'alipay.wap.create.direct.pay.by.user',//不需修改
               'payment_type'        =>'1',
               'seller_email'        =>'xxxxxxxxxxxx@xxx.com',
-              'successpage'         =>'alipay.success',                       //支付成功提示页面
-              'errorpage'           =>'alipay.failed',                        //支付失败提示页面
           ]
 
   ];
