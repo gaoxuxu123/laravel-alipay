@@ -53,7 +53,7 @@ class AlipayServiceProvider extends ServiceProvider{
             $mobileAlipay->key                  = config('lxu-alipay.mobileconfig.key');
             $mobileAlipay->sign_type            = config('lxu-alipay.mobileconfig.sign_type');
             $mobileAlipay->input_charset        = config('lxu-alipay.mobileconfig.input_charset');
-            $mobileAlipay->ali_public_key_path  = __DIR__.'\\config\\key\\alipay_public_key.pem';
+            $mobileAlipay->ali_public_key_path  = __DIR__.'\\config\\key\\rsa_public_key.pem';
             $mobileAlipay->private_key_path     = __DIR__.'\\config\\key\\rsa_private_key.pem';
             $mobileAlipay->transport            = config('lxu-alipay.mobileconfig.transport');
             return $mobileAlipay;
