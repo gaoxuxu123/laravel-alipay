@@ -33,10 +33,7 @@ composer require laravel-alipay/alipay dev-master
 ###PC网页支付
 
 ```
-/**
- $request 控制器传递的Request 参数
-*/
-public function pay($request)
+public function pay(Request $request)
     {
         //唯一的订单号
         $out_trade_no       = '20160122';
