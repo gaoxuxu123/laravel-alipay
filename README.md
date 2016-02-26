@@ -79,15 +79,15 @@ public function getPay(Request $request)
             if($verify_result){
                 //验证成功
                 //获取支付宝的通知返回参数
-                $parameter = [
-                                "out_trade_no"      => $request->out_trade_no, //商户订单编号；
-                                "trade_no"          => $request->trade_no,     //支付宝交易号；
-                                "total_fee"         => $request->total_fee,    //交易金额；
-                                "trade_status"      => $request->trade_status, //交易状态
-                                "notify_id"         => $request->notify_id,    //通知校验ID。
-                                "notify_time"       => $request->notify_time,  //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
-                                "buyer_email"       => $request->buyer_email,  //买家支付宝帐号；
-                             ];
+            $parameter = [
+                        "out_trade_no"      => $request->out_trade_no, //商户订单编号；
+                        "trade_no"          => $request->trade_no,     //支付宝交易号；
+                        "total_fee"         => $request->total_fee,    //交易金额；
+                        "trade_status"      => $request->trade_status, //交易状态
+                        "notify_id"         => $request->notify_id,    //通知校验ID。
+                        "notify_time"       => $request->notify_time,  //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
+                        "buyer_email"       => $request->buyer_email,  //买家支付宝帐号；
+                         ];
                 if($request->trade_status == 'TRADE_FINISHED') {
                         //
 
@@ -117,15 +117,15 @@ public function getPay(Request $request)
             $verify_result  = $alipayNotify->verifyReturn();
             if($verify_result){
 
-                $parameter = [
-                                "out_trade_no"      => $request->out_trade_no, //商户订单编号；
-                                "trade_no"          => $request->trade_no,     //支付宝交易号；
-                                "total_fee"         => $request->total_fee,    //交易金额；
-                                "trade_status"      => $request->trade_status, //交易状态
-                                "notify_id"         => $request->notify_id,    //通知校验ID。
-                                "notify_time"       => $request->notify_time,  //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
-                                "buyer_email"       => $request->buyer_email,  //买家支付宝帐号；
-                            ];
+            $parameter = [
+                        "out_trade_no"      => $request->out_trade_no, //商户订单编号；
+                        "trade_no"          => $request->trade_no,     //支付宝交易号；
+                        "total_fee"         => $request->total_fee,    //交易金额；
+                        "trade_status"      => $request->trade_status, //交易状态
+                        "notify_id"         => $request->notify_id,    //通知校验ID。
+                        "notify_time"       => $request->notify_time,  //通知的发送时间。格式为yyyy-MM-dd HH:mm:ss。
+                        "buyer_email"       => $request->buyer_email,  //买家支付宝帐号；
+                        ];
                 if($request->trade_status == 'TRADE_FINISHED' || $request->trade_status == 'TRADE_SUCCESS') {
                     //支付成功
                     //处理订单状态，记录支付记录
@@ -151,7 +151,7 @@ public function getPay(Request $request)
 ###手机网页支付
 
 ```
-首先下载 Openssl工具，windows开发者下载链接: `http://download.csdn.net/detail/gaoxuaiguoyi/9443275`
+首先下载 Openssl工具，windows开发者下载链接: http://download.csdn.net/detail/gaoxuaiguoyi/9443275
 
 Linux开发者直接去官网下载openssl.org
 
@@ -159,7 +159,7 @@ Linux开发者直接去官网下载openssl.org
 
 https://doc.open.alipay.com/doc2/detail.htm?spm=0.0.0.0.y0P2mJ&treeId=58&articleId=103242&docType=1
 
-教程即可生成 `rsa_private_key.pem和rsa_public_key.pem`  2个文件覆盖项目中的key文件夹下载文件即可。
+教程即可生成 rsa_private_key.pem和rsa_public_key.pem  2个文件覆盖项目中的key文件夹下载文件即可。
 
 ```
 
