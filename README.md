@@ -60,7 +60,7 @@ public function getPay(Request $request)
                         "show_url"          => $show_url,
                         "anti_phishing_key" => $anti_phishing_key,
                         "exter_invoke_ip"   => $exter_invoke_ip,
-                        "_input_charset"    => trim(strtolower(config('alipay.pcconfig.input_charset')))
+                        "_input_charset"    => trim(strtolower(config('lxu-alipay.pcconfig.input_charset')))
                     ];
         $pc =  app('PcAlipay');
         $html_text = $pc->buildRequestForm($parameter,"post", "确认");
