@@ -49,6 +49,7 @@ public function getPay(Request $request)
         $parameter = [
                         "service"           => config('lxu-alipay.pcconfig.service'),
                         "partner"           => trim(config('lxu-alipay.pcconfig.partner')),
+                        "seller_id"         => trim(config('lxu-alipay.mobileconfig.seller_id')),
                         "payment_type"      => config('lxu-alipay.pcconfig.payment_type'),
                         "notify_url"        => config('lxu-alipay.pcconfig.notify_url'),
                         "return_url"        => config('lxu-alipay.pcconfig.return_url'),
