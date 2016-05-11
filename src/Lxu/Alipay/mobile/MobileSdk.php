@@ -286,7 +286,7 @@ class MobileSdk {
      */
     public function getResponse($notify_id) {
         $transport = strtolower(trim($this->transport));
-        $partner = trim($this->alipay_config['partner']);
+        $partner = trim($this->partner);
         $veryfy_url = '';
         if($transport == 'https') {
             $veryfy_url = $this->https_verify_url;
